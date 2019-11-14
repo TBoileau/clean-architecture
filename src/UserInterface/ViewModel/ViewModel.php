@@ -15,15 +15,6 @@ abstract class ViewModel implements ViewModelInterface
     private $data;
 
     /**
-     * ViewModel constructor.
-     * @param array $data
-     */
-    public function __construct(array $data)
-    {
-        $this->data = $data;
-    }
-
-    /**
      * @param string $attribute
      * @return mixed
      */
