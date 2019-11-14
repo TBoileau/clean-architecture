@@ -30,11 +30,16 @@ abstract class ViewModel implements ViewModelInterface
      */
     public function __call($name, $arguments)
     {
+        if (isset($this->data[$name])) {
+            return $this->get($name);
+        }
+
         if (0 == strpos($name, 'get')) {
             return $this->get(lcfirst(substr($name, 3)));
         }
 
-        throw new \BadMethodCallException("Undefined method '$name'. The method name must start with get !");
+
+        throw new \BadMethodCallException("Undefined method '$name' or property '$name'. The name must start with get !");
     }
 
     /**
