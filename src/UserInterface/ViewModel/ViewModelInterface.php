@@ -17,11 +17,6 @@ interface ViewModelInterface
     public function configure(OptionsResolver $resolver): void;
 
     /**
-     * ViewModelInterface constructor.
-     * @param array $data
-     */
-    public function __construct(array $data);
-    /**
      * @param string $attribute
      * @return mixed
      */
