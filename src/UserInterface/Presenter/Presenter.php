@@ -39,7 +39,9 @@ class Presenter implements PresenterInterface
 
         $resolver = new OptionsResolver();
 
-        $viewModelClass->configure($resolver);
+        $viewModel->configure($resolver);
+
+        $viewModel->setData($resolver->resolve($data));
 
         return $viewModel;
     }

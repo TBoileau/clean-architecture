@@ -45,4 +45,12 @@ abstract class ViewModel implements ViewModelInterface
 
         throw new \BadMethodCallException("Undefined method '$name'. The method name must start with get !");
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function setData(array $data): void
+    {
+        $this->data = $data;
+    }
 }

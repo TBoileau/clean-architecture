@@ -33,4 +33,9 @@ interface ViewModelInterface
      * @return mixed
      */
     public function __call($name, $arguments);
+
+    /**
+     * @param array $data
+     */
+    public function setData(array $data): void;
 }
