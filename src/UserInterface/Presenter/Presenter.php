@@ -11,7 +11,7 @@ use TBoileau\CleanArchitecture\UserInterface\ViewModel\ViewModel;
  * @package TBoileau\CleanArchitecture\UserInterface\Presenter
  * @author Thomas Boileau <t-boileau@email.com>
  */
-abstract class Presenter implements PresenterInterface
+class Presenter implements PresenterInterface
 {
     /**
      * @var ServiceLocator
