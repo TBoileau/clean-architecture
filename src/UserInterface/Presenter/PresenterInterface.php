@@ -2,7 +2,6 @@
 
 namespace TBoileau\CleanArchitecture\UserInterface\Presenter;
 
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use TBoileau\CleanArchitecture\UserInterface\ViewModel\ViewModel;
 
 /**
@@ -12,11 +11,6 @@ use TBoileau\CleanArchitecture\UserInterface\ViewModel\ViewModel;
  */
 interface PresenterInterface
 {
-    /**
-     * @param OptionsResolver $resolver
-     */
-    public function configure(OptionsResolver $resolver): void;
-
     /**
      * @param string $viewModelClass
      * @param array $data

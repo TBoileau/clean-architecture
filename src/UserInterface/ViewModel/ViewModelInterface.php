@@ -2,6 +2,8 @@
 
 namespace TBoileau\CleanArchitecture\UserInterface\ViewModel;
 
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
 /**
  * Interface ViewModelInterface
  * @package TBoileau\CleanArchitecture\UserInterface\ViewModel
@@ -9,6 +11,11 @@ namespace TBoileau\CleanArchitecture\UserInterface\ViewModel;
  */
 interface ViewModelInterface
 {
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configure(OptionsResolver $resolver): void;
+
     /**
      * ViewModelInterface constructor.
      * @param array $data

@@ -7,7 +7,7 @@ namespace TBoileau\CleanArchitecture\UserInterface\ViewModel;
  * @package TBoileau\CleanArchitecture\UserInterface\ViewModel
  * @author Thomas Boileau <t-boileau@email.com>
  */
-class ViewModel implements ViewModelInterface
+abstract class ViewModel implements ViewModelInterface
 {
     /**
      * @var array
