@@ -1,0 +1,34 @@
+{
+    "name": "tboileau/clean-architecture",
+    "description": "Clean Architecture Library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Boileau",
+            "email": "t-boileau@email.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1.3",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "symfony/options-resolver": "~4.3",
+        "symfony/dependency-injection": "~4.3",
+        "doctrine/annotations": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "TBoileau\\CleanArchitecture\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TBoileau\\CleanArchitecture\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    }
+}
