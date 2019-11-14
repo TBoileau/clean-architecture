@@ -13,16 +13,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class RequestFactory implements RequestFactoryInterface
 {
     /**
-     * @var RequestInterface
-     */
-    private $request;
-
-    /**
-     * @var OptionsResolver
-     */
-    private $resolver;
-
-    /**
      * @var ServiceLocator
      */
     private $serviceLocator;
@@ -41,12 +31,15 @@ class RequestFactory implements RequestFactoryInterface
      */
     public function create(string $requestClass, array $data = []): RequestInterface
     {
-        $this->request = $this->serviceLocator->get($requestClass);
+        /** @var RequestInterface $request */
+        $request = $this->serviceLocator->get($requestClass);
 
-        $this->resolver = new OptionsResolver();
+        $resolver = new OptionsResolver();
 
-        $this->request->setData($this->resolver->resolve($data));
+        $request->configure($resolver);
 
-        return $this->request;
+        $request->setData($resolver->resolve($data));
+
+        return $request;
     }
 }

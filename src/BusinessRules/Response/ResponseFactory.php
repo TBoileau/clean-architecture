@@ -31,6 +31,7 @@ class ResponseFactory implements ResponseFactoryInterface
      */
     public function create(string $responseClass, array $data): ResponseInterface
     {
+        /** @var ResponseInterface $response */
         $response = $this->serviceLocator->get($responseClass);
 
         $resolver = new OptionsResolver();
