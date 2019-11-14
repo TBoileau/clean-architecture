@@ -1,0 +1,39 @@
+language: php
+sudo: false
+dist: trusty
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+env:
+  global:
+    - PHPUNIT_FLAGS="-v"
+
+addons:
+  sonarcloud:
+    organization: "tboileau-github"
+    token:
+      secure: "ff2aa9ebd7d4559b8d3cc792500c248fca27cd71"
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.3
+      env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-text"
+
+  allow_failures:
+    - env: STABILITY="dev"
+
+before_install:
+  - if [[ $COVERAGE != true ]]; then phpenv config-rm xdebug.ini || true; fi
+  - if ! [ -z "$STABILITY" ]; then composer config minimum-stability ${STABILITY}; fi;
+  - if ! [ -v "$DEPENDENCIES" ]; then composer require --no-update ${DEPENDENCIES}; fi;
+
+install:
+  - if [[ "$COMPOSER_FLAGS" == *"--prefer-lowest"* ]]; then composer update --prefer-dist --no-interaction --prefer-stable --quiet; fi
+  - composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
+  - ./vendor/bin/phpunit install
+
+script:
+  - composer validate --strict --no-check-lock
+  - ./vendor/bin/phpunit $PHPUNIT_FLAGS
+  - sonar-scanner
