@@ -2,14 +2,13 @@
 
 namespace TBoileau\CleanArchitecture\Tests\BusinessRules;
 
-use PHPUnit\Framework\TestCase;
 use TBoileau\CleanArchitecture\BusinessRules\Request\RequestInterface;
 use TBoileau\CleanArchitecture\BusinessRules\Response\ResponseInterface;
 use TBoileau\CleanArchitecture\BusinessRules\UseCase\UseCaseInterface;
 use TBoileau\CleanArchitecture\Tests\BusinessRules\Request\RequestStub;
 use TBoileau\CleanArchitecture\Tests\BusinessRules\Response\ResponseStub;
 use TBoileau\CleanArchitecture\Tests\BusinessRules\UseCase\UseCaseStub;
-use TBoileau\CleanArchitecture\Tests\TestUseCase;
+use TBoileau\CleanArchitecture\BusinessRules\UseCase\TestUseCase;
 
 /**
  * Class UseCaseTest

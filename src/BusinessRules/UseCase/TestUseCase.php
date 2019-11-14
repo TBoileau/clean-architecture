@@ -1,6 +1,6 @@
 <?php
 
-namespace TBoileau\CleanArchitecture\Tests;
+namespace TBoileau\CleanArchitecture\BusinessRules\UseCase;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ServiceLocator;
@@ -13,14 +13,11 @@ use TBoileau\CleanArchitecture\BusinessRules\Response\{
     ResponseFactory,
     ResponseInterface
 };
-use TBoileau\CleanArchitecture\BusinessRules\UseCase\{
-    UseCaseFactory,
-    UseCaseInterface
-};
 
 /**
- * Class TestUseCase
- * @package TBoileau\CleanArchitecture\Tests
+ * Class UseCaseFactory
+ * @package TBoileau\CleanArchitecture\BusinessRules\UseCase
+ * @author Thomas Boileau <t-boileau@email.com>
  */
 abstract class TestUseCase extends TestCase
 {
