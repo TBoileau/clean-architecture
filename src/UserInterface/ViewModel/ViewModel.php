@@ -30,7 +30,7 @@ abstract class ViewModel implements ViewModelInterface
      */
     public function __call($name, $arguments)
     {
-        if (isset($this->data[$name])) {
+        if (isset($this->data[$name]) || null === $this->data[$name]) {
             return $this->get($name);
         }
 
