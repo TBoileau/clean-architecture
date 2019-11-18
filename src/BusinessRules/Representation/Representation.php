@@ -23,9 +23,9 @@ abstract class Representation implements RepresentationInterface
     private $data = [];
 
     /**
-     * @var int
+     * @var int|null
      */
-    protected $total = 0;
+    protected $total;
 
     /**
      * @inheritDoc
