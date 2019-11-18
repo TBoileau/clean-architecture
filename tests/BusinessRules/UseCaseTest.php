@@ -44,8 +44,19 @@ class UseCaseTest extends TestUseCase
     /**
      * @inheritDoc
      */
-    public function provideData()
+    public function getRequestData(): array
     {
-        yield [[],[]];
+        return [];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function assertions(ResponseInterface $response)
+    {
+        $expectedResponse = new ResponseStub();
+        $expectedResponse->setData([]);
+
+        $this->assertEquals($response, $expectedResponse);
     }
 }

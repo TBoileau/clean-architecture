@@ -37,16 +37,17 @@ abstract class TestUseCase extends TestCase
     abstract public function getRequest(): RequestInterface;
 
     /**
-     * @return array|\Generator
+     * @return array
      */
-    abstract public function provideData();
+    abstract public function getRequestData(): array;
 
     /**
-     * @dataProvider provideData
-     * @param array $requestData
-     * @param array $responseData
+     * @param ResponseInterface $response
+     * @return mixed
      */
-    public function testExecute(array $requestData, array $responseData): void
+    abstract public function assertions(ResponseInterface $response);
+
+    public function testExecute(): void
     {
         $requestServiceLocator = $this->createMock(ServiceLocator::class);
         $requestServiceLocator->method("get")->willReturn($this->getRequest());
@@ -70,8 +71,8 @@ abstract class TestUseCase extends TestCase
             new UseCaseResolver()
         );
 
-        $response = $useCaseFactory->execute(get_class($useCase), $requestData);
+        $response = $useCaseFactory->execute(get_class($useCase), $this->getRequestData());
 
-        $this->assertEquals($responseData, $response->getData());
+        $this->assertions($response);
     }
 }
