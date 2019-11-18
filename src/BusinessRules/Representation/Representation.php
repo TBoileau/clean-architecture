@@ -35,8 +35,8 @@ abstract class Representation implements RepresentationInterface
         $resolver = new OptionsResolver();
 
         $resolver->setRequired(["page", "limit", "field", "order"]);
-        $resolver->addAllowedTypes("page", "int");
-        $resolver->addAllowedTypes("limit", "int");
+        $resolver->addAllowedTypes("page", ["string", "int"]);
+        $resolver->addAllowedTypes("limit", ["string", "int"]);
         $resolver->addAllowedTypes("field", "string");
         $resolver->addAllowedTypes("order", "string");
 
