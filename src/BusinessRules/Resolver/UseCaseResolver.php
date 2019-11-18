@@ -3,6 +3,7 @@
 namespace TBoileau\CleanArchitecture\BusinessRules\Resolver;
 
 use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use TBoileau\CleanArchitecture\BusinessRules\Annotation\UseCase;
 
 /**
@@ -23,6 +24,8 @@ class UseCaseResolver
         $reflectionClass = new \ReflectionClass($class);
 
         $reader = new AnnotationReader();
+
+        AnnotationRegistry::registerUniqueLoader('class_exists');
 
         return $reader->getClassAnnotation($reflectionClass, UseCase::class);
     }
